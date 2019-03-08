@@ -33,7 +33,9 @@ gx1、服务发布和消费端的转换过程：
 
 ![16_23_54__03_08_2019](https://qiuyuimg.oss-cn-beijing.aliyuncs.com/images/16_23_54__03_08_2019.jpg)
 
-	大致步骤就是 对外暴漏的rpc接口的实例 通过proxyfactory转换成invoker，在通过protocol把invoker转换成export。然后再将得到的export对外发布。
+
+
+大致步骤就是 对外暴漏的rpc接口的实例 通过proxyfactory转换成invoker，在通过protocol把invoker转换成export。然后再将得到的export对外发布。
 
 dubbo提供了两个ProxyFactory实现方式jdkproxy和javassist，默认的实现使用javassist，主要是因为jsvassist比jdkproxy效率快很多，具体参考：
 
