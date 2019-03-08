@@ -15,7 +15,7 @@ dubbo源码解析-dubbo-rpc-api
 
 这是rpc模块的类图。是不是有点乱？别急我们慢慢整。
 
-首先protocol是我们最核心的接口。主要功能是1:服务提供者暴漏一个服务，2:消费者引用一个服务。
+首先protocol是我们最核心的接口。主要功能是1:服务提供者暴露一个服务，2:消费者引用一个服务。
 
 他下面有两个抽象类：AbstractProtocol和AbstractProxyProtocol；
 
@@ -30,6 +30,8 @@ gx1、服务发布和消费端的转换过程：
 	服务发布：
 
 <img src="https://qiuyuimg.oss-cn-beijing.aliyuncs.com/images/dubbo_rpc_export.jpg" width="400px"> 
+
+![16_23_54__03_08_2019](/Users/qiuyu/blog/qiuyu-dww.github.io/_posts/images/16_23_54__03_08_2019.jpg)
 
 	大致步骤就是 对外暴漏的rpc接口的实例 通过proxyfactory转换成invoker，在通过protocol把invoker转换成export。然后再将得到的export对外发布。
 
@@ -95,7 +97,7 @@ public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
 
 <img src="https://qiuyuimg.oss-cn-beijing.aliyuncs.com/images/dubbo_rpc_refer.jpg" width="400px"> 
 
-
+![16_24_25__03_08_2019](/Users/qiuyu/blog/qiuyu-dww.github.io/_posts/images/16_24_25__03_08_2019.jpg)
 
 大致步骤就是 通过protocol把远程服务（简单理解成url）转换成invoker。然后再通过proxyfactory将invoker转成我们请求的接口。
 
